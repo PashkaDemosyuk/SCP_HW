@@ -5,9 +5,6 @@
     "@sap/xssec": "^2.1.15",
     "passport": "^0.4.0"
   },
-  "devDependencies": {
-    "@sap/xsjs-test": "2.0.16"
-  },
   "files": [],
   "main": "server.js",
   "name": "service",
