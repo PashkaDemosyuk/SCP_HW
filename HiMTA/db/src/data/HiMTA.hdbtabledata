@@ -10,8 +10,8 @@
       },
       "import_settings": {
         "import_columns": [
-          "usid",
-          "name"
+                    "usid",
+                    "name"
         ]
       }
     },
@@ -41,8 +41,8 @@
       "import_settings": {
         "import_columns": [
 					"crid",
-          "usid",
-          "name"
+                    "usid",
+                     "name"
         ]
       }
     }
