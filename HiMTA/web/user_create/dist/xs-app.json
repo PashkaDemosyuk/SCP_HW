@@ -10,7 +10,7 @@
    "authenticationType":"xsuaa",
    "scope":{
     "GET":[
-     "$XSAPPNAME.HiMTA.view"
+     "$XSAPPNAME.HiMTA.create"
     ],
     "POST":[
      "$XSAPPNAME.HiMTA.edit"
@@ -21,7 +21,7 @@
     "DELETE":[
      "$XSAPPNAME.HiMTA.edit"
     ],
-    "default":"$XSAPPNAME.HiMTA.view"
+    "default":"$XSAPPNAME.HiMTA.create"
    }
   }
  ]

@@ -9,7 +9,7 @@
       "csrfProtection":true,
       "authenticationType":"xsuaa",
       "scope":{
-        "default":"$XSAPPNAME.HiTMA.view"
+        "default":"$XSAPPNAME.HiMTA.view"
       }
     }
   ]
