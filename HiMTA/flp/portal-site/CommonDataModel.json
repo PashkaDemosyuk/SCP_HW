@@ -17,12 +17,12 @@
         "payload": {
           "appDescriptors": [
             {
-              "id": "user_create",
-              "intentHintId": "user_create-manage"
+              "id": "company_create",
+              "intentHintId": "company_create-manage"
             },
             {
-              "id": "user_display",
-              "intentHintId": "user_display-display"
+              "id": "company_display",
+              "intentHintId": "company_display-display"
             }
           ]
         }
@@ -40,14 +40,14 @@
         "payload": {
           "tiles": [
             {
-              "id": "user_create-0-1547743524700",
-              "appId": "user_create",
-              "intentHintId": "user_create-manage"
+              "id": "company_create-0-1547743524700",
+              "appId": "company_create",
+              "intentHintId": "company_create-manage"
             },
             {
-              "id": "user_display-1-1547743524700",
-              "appId": "user_display",
-              "intentHintId": "user_display-display"
+              "id": "company_display-1-1547743524700",
+              "appId": "company_display",
+              "intentHintId": "company_display-display"
             }
           ]
         }

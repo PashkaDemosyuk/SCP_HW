@@ -1,14 +1,14 @@
 namespace HiMTA;
 
-using HiMTA::User;
+using HiMTA::Company;
 
 context ExtraInfo{
 
-		entity Address {
-    		@Comment: 'Id of Address'
+		entity Office {
+    		@Comment: 'Id of Office'
 		    key adid : Integer64 generated always as identity ( start with 1 increment by 1 );
-		    @Comment: 'User for Address'
-		    usid : String(4);
+		    @Comment: 'Company for Office'
+		    compid : String(4);
 		    @Comment: 'City'
 		    city : String(100);
 		    @Comment: 'Street'
@@ -17,14 +17,14 @@ context ExtraInfo{
 		    hnum : Integer;
 		};
 
-		entity Cars {
-		    @Comment: 'Id of Car'
-		    key crid : String(4);
-		    @Comment: 'User for Car'
-		    usid : String(4);
+		entity Workers {
+		    @Comment: 'Id of Worker'
+		    key worid : String(4);
+		    @Comment: 'Company for Worker'
+		    compid : String(4);
 		    @Comment: 'Name'
 		    name : String(100);
 
-    		toUser : Association[1] to User on toUser.usid = usid;
+    		toCompany : Association[1] to Company on toCompany.compid = compid;
 		};
 };

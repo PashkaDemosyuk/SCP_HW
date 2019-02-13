@@ -20,7 +20,7 @@ function show_options
     echo "Options: "
     echo " -a:      xsuaa base URI [default: https://localhost:30032/uaa-security]"
     echo " -i:      SQL template in [default: xsuaa_template.sql]"
-    echo " -q:      SQL file created [default: xs_appuser.sql]"
+    echo " -q:      SQL file created [default: xs_appcompany.sql]"
     echo " -n:      HANA host name:port [default: EMPTY, no hdbsql used]"
     echo " -u:      HANA system user name [default: system]"
     echo " -p:      HANA system user password"
@@ -117,7 +117,7 @@ if [ "$uaa_url" == "" ]; then
     uaa_url="https://localhost:30032/uaa-security"
 fi
 if [ "$out_file" == "" ]; then
-    out_file="xs_appuser.sql"
+    out_file="xs_appcompany.sql"
 fi
 if [ "$in_file" == "" ]; then
     in_file="xsuaa_template.sql"

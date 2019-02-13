@@ -2,29 +2,29 @@
   "format_version": 1,
   "imports": [
     {
-      "target_table": "HiMTA::User",
+      "target_table": "HiMTA::Company",
       "source_data": {
         "data_type": "CSV",
-        "file_name": "HiMTA::Users.csv",
+        "file_name": "HiMTA::Companies.csv",
         "has_header": true
       },
       "import_settings": {
         "import_columns": [
-                    "usid",
+                    "compid",
                     "name"
         ]
       }
     },
     {
-      "target_table": "HiMTA::ExtraInfo.Address",
+      "target_table": "HiMTA::ExtraInfo.Office",
       "source_data": {
         "data_type": "CSV",
-        "file_name": "HiMTA::Address.csv",
+        "file_name": "HiMTA::Office.csv",
         "has_header": true
       },
       "import_settings": {
         "import_columns": [
-					"usid",
+					"compid",
 					"city",
 					"strt",
 					"hnum"
@@ -32,16 +32,16 @@
       }
     },
     {
-      "target_table": "HiMTA::ExtraInfo.Cars",
+      "target_table": "HiMTA::ExtraInfo.Workers",
       "source_data": {
         "data_type": "CSV",
-        "file_name": "HiMTA::Cars.csv",
+        "file_name": "HiMTA::Workers.csv",
         "has_header": true
       },
       "import_settings": {
         "import_columns": [
-					"crid",
-                    "usid",
+					"worid",
+                    "compid",
                      "name"
         ]
       }

@@ -27,7 +27,7 @@ modules:
         requires:
             - {name: pt_deployer}
         build-parameters:
-            requires: [{name: user_create, artifacts: ['./*'], target-path: resources/user_create},{name: user_display, artifacts: ['./*'], target-path: resources/user_display}]
+            requires: [{name: Company_create, artifacts: ['./*'], target-path: resources/Company_create},{name: Company_display, artifacts: ['./*'], target-path: resources/Company_display}]
         parameters:
             disk-quota: 256M
             memory: 256M
@@ -55,9 +55,9 @@ modules:
             memory: 512M
             disk_quota: 512M
     -
-        name: user_create
+        name: Company_create
         type: html5
-        path: web/user_create
+        path: web/Company_create
         parameters:
             disk-quota: 256M
             memory: 256M
@@ -66,9 +66,9 @@ modules:
         requires:
             - {name: pt_uaa}    
     -
-        name: user_display
+        name: Company_display
         type: html5
-        path: web/user_display
+        path: web/Company_display
         parameters:
             disk-quota: 256M
             memory: 256M

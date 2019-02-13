@@ -4,16 +4,16 @@
  "description": "Security profile of called application",
  "scopes": [
   {
-   "name": "uaa.user",
+   "name": "uaa.company",
    "description": "UAA"
   },
   {
    "name": "$XSAPPNAME.HiMTA.view",
-   "description": "Display users"
+   "description": "Display companies"
   },
   {
    "name": "$XSAPPNAME.HiMTA.create",
-   "description": "Create users"
+   "description": "Create companies"
   }
  ],
  "attributes": [
@@ -28,7 +28,7 @@
    "name": "Token_Exchange",
    "description": "UAA",
    "scope-references": [
-    "uaa.user"
+    "uaa.company"
    ]
   },
   {
@@ -42,7 +42,7 @@
    ]
   },
   {
-   "name": "User",
+   "name": "Company",
    "description": "Display mode only",
    "scope-references": [
     "$XSAPPNAME.HiMTA.view"
