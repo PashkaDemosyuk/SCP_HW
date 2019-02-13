@@ -8,15 +8,13 @@ var statementConstructor = function () {
         };
         let sColumnList = '', sValueList = '';
 
-        Object.keys(oValueObject).forEach(value => {
-            sColumnList += `"${value}",`;
-            oResult.aParams.push(value);
-        });
+    for(let key in oValueObject){
+            sColumnList += `"${key}", `;
+            oResult.aParams.push(key);
 
-        Object.values(oValueObject).forEach(value => {
             sValueList += "?, ";
-            oResult.aValues.push(value);
-        });
+            oResult.aValues.push(oValueObject[key]);
+    };
 
         // Remove the last unnecessary comma and blank
         sColumnList = sColumnList.slice(0, -1);
