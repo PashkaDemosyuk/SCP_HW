@@ -17,7 +17,7 @@ var statementConstructor = function () {
     };
 
         // Remove the last unnecessary comma and blank
-        sColumnList = sColumnList.slice(0, -1);
+        sColumnList = sColumnList.slice(0, -2);
         sValueList = sValueList.slice(0, -2);
 
         oResult.sql = `insert into "${sTableName}" (${sColumnList}) values (${sValueList})`;
@@ -27,31 +27,18 @@ var statementConstructor = function () {
     };
 
     this.createPreparedUpdateStatement = function (sTableName, oValueObject) {
-        let oResult = {
-            aParams: [],
-            aValues: [],
-            sql: "",
-        };
-        let sColumnList = '', sValueList = '';
+            let sql = `UPDATE "${sTableName}" SET `;
 
-        Object.keys(oValueObject).forEach(value => {
-            sColumnList += `"${value}",`;
-            oResult.aParams.push(value);
-        });
+            for(let key in oValueObject){
+                if(key!='compid')
+                {
+                    sql += `"${key}"='${oValueObject[key]}', `
+                }
+            };
 
-        Object.values(oValueObject).forEach(value => {
-            sValueList += "?, ";
-            oResult.aValues.push(value);
-        });
-
-        // Remove the last unnecessary comma and blank
-        sColumnList = sColumnList.slice(0, -1);
-        sValueList = sValueList.slice(0, -2);
-
-        oResult.sql = `UPDATE "${sTableName}" SET "name"='${oValueObject.name}' WHERE "compid"=${oValueObject.compid};`;
-
-        $.trace.error("sql to update: " + oResult.sql);
-        return oResult;
+            sql = sql.slice(0, -2);
+            sql += ` WHERE "compid"='${oValueObject.compid}';`;
+            return sql;
     };
 
 };
@@ -64,16 +51,10 @@ var company = function (connection) {
     const COMPANY_TABLE = "HiMTA::Company";
     const OFFICE_TABLE = "HiMTA::ExtraInfo.Office";
     const WORKERS_TABLE = "HiMTA::ExtraInfo.Workers";
-    /*
-            const COMPANY = $.session.securityContext.companyInfo.familyName ?
-                $.session.securityContext.companyInfo.familyName + " " + $.session.securityContext.companyInfo.givenName :
-                $.session.getCompanyname().toLocaleLowerCase(),
-    */
 
     function getNextval(sSeqName) {
 
         const statement = `select "${sSeqName}".NEXTVAL as "ID" from dummy`;
-
         const result = connection.executeQuery(statement);
 
         if (result.length > 0) {
@@ -83,8 +64,7 @@ var company = function (connection) {
         }
     }
 
-    this.doGet = function () { //this.doGet = function (obj) {
-
+    this.doGet = function () {
         const result = connection.executeQuery('SELECT * FROM "HiMTA::Company"');
 
         $.response.status = $.net.http.OK;
@@ -110,15 +90,12 @@ var company = function (connection) {
 
     this.doPut = function (oCompany) {
         //generate query
-        let sql="";
+        const statement = statementConstructorLib.createPreparedUpdateStatement(COMPANY_TABLE, oCompany);
 
-        sql = `UPDATE "${COMPANY_TABLE}" SET "name"='${oCompany.name}' WHERE "compid"=${oCompany.compid};`;
-        $.trace.error("sql to update: " + sql);
-
+        $.trace.error("sql to update: " + statement);
         //execute update
-        connection.executeUpdate(sql);
+        connection.executeUpdate(statement);
         connection.commit();
-
         $.response.status = $.net.http.OK;
         $.response.setBody('Company updated');
     };
