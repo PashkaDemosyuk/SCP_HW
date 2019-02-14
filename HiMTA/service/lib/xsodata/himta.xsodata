@@ -3,7 +3,7 @@ service namespace "HiMTA"{
     "HiMTA::Company" as "Companies"
                 navigates("Companies_2_Office" as "toOffice", "Companies_2_Workers" as "toWorkers")
             create using "xsjs.company:companiesCreate.xsjslib::companiesCreate"
-            update forbidden
+            update using "xsjs.company:companiesUpdate.xsjslib::companiesUpdate"
             delete forbidden;
 
     "HiMTA::ExtraInfo.Office" as "Office"
