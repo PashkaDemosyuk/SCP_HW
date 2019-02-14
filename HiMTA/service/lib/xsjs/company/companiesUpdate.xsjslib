@@ -16,7 +16,7 @@ function companiesUpdate(param) {
   var oCompany = oCompanyItems.items[0];
   $.trace.error(JSON.stringify(oCompany));
   var uStmt;
-  uStmt = param.connection.prepareStatement(`UPDATE "${COMPANY_TABLE}" SET "authid"='${oCompany.authid}', "caption"='${oCompany.caption}'  WHERE "bid"=${oCompany.bid};`);
+  uStmt = param.connection.prepareStatement(`UPDATE "${COMPANY_TABLE}" SET  "name"='${oCompany.name}'  WHERE "compid"=${oCompany.compid};`);
   uStmt.executeUpdate();
 }
 
