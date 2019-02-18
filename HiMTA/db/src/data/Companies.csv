@@ -1,5 +1,5 @@
-compid,name
-0001,Leverx
-0002,EPAM
-0003,ITechArt
-0004,Microsoft
+compid,name,update_date
+0001,Leverx, 2004-01-01 01:01:01
+0002,EPAM, 2004-01-01 01:01:01
+0003,ITechArt, 2004-01-01 01:01:01
+0004,Microsoft, 2004-01-01 01:01:01

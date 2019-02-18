@@ -9,6 +9,8 @@ entity Company {
     key compid : String(4);
     @Comment: 'Description'
     name : String(100);
+    @Comment: 'Updade Date'
+    update_date: UTCDateTime;
 
     toWorkers : Association[*] to Workers on toWorkers.compid = compid;
     toOffice : Association[1] to Office on toOffice.compid = compid;

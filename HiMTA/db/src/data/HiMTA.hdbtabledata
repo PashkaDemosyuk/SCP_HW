@@ -11,7 +11,8 @@
       "import_settings": {
         "import_columns": [
                     "compid",
-                    "name"
+                    "name",
+                    "update_date"
         ]
       }
     },

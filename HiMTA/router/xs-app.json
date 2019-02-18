@@ -9,7 +9,7 @@
   },
   {
    "source": "^/s4c/(.*)",
-   "target": "/$1",
+   "target": "$1",
    "destination": "S4C"
   },
   {

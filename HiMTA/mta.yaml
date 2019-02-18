@@ -47,11 +47,13 @@ modules:
         type: nodejs
         path: service
         requires:
+            - {name: pt_uaa}
             - {name: pt_db}
             - {name: pt_hdi}
         provides:
             - {name: pt_service, properties: {url: '${default-url}'}}
         parameters:
+            register-service-url: true
             memory: 512M
             disk_quota: 512M
     -

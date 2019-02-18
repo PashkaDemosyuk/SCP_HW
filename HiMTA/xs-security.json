@@ -42,7 +42,7 @@
    ]
   },
   {
-   "name": "Company",
+   "name": "User",
    "description": "Display mode only",
    "scope-references": [
     "$XSAPPNAME.HiMTA.view"
