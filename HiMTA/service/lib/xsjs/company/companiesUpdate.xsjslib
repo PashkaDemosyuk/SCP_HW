@@ -5,6 +5,7 @@
  */
 
 const COMPANY_TABLE ="HiMTA::Company";
+const CURR_TIMESTAMP = "current_timestamp";
 
 function companiesUpdate(param) {
   var after = param.afterTableName;
@@ -14,10 +15,13 @@ function companiesUpdate(param) {
 
   var oCompanyItems = recordSetToJSON(oResult, "items");
   var oCompany = oCompanyItems.items[0];
-  $.trace.error(JSON.stringify(oCompany));
   var uStmt;
-  uStmt = param.connection.prepareStatement(`UPDATE "${COMPANY_TABLE}" SET  "name"='${oCompany.name}'  WHERE "compid"=${oCompany.compid};`);
-  uStmt.executeUpdate();
+
+  pStmt.close();
+  pStmt = param.connection.prepareStatement(`UPDATE "${COMPANY_TABLE}" SET "name"='${oCompany.name}', "update_date"=${CURR_TIMESTAMP} WHERE "compid"=${oCompany.compid}`);
+
+   pStmt.executeUpdate();
+   pStmt.close();
 }
 
 function recordSetToJSON(rs,rsName){

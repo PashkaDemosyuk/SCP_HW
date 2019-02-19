@@ -26,13 +26,6 @@
             "name": "controller\\BaseController.js"
         },
         {
-            "name": "controller\\Details-dbg.controller.js",
-            "isDebug": true
-        },
-        {
-            "name": "controller\\Details.controller.js"
-        },
-        {
             "name": "controller\\NotFound-dbg.controller.js",
             "isDebug": true
         },
@@ -73,9 +66,6 @@
             "name": "tmp\\controller\\BaseController.js"
         },
         {
-            "name": "tmp\\controller\\Details.controller.js"
-        },
-        {
             "name": "tmp\\controller\\NotFound.controller.js"
         },
         {
@@ -95,9 +85,6 @@
             "name": "tmp\\view\\App.view.xml"
         },
         {
-            "name": "tmp\\view\\Details.view.xml"
-        },
-        {
             "name": "tmp\\view\\NotFound.view.xml"
         },
         {
@@ -110,9 +97,6 @@
             "name": "tmp-dbg\\controller\\BaseController.js"
         },
         {
-            "name": "tmp-dbg\\controller\\Details.controller.js"
-        },
-        {
             "name": "tmp-dbg\\controller\\NotFound.controller.js"
         },
         {
@@ -120,9 +104,6 @@
         },
         {
             "name": "view\\App.view.xml"
-        },
-        {
-            "name": "view\\Details.view.xml"
         },
         {
             "name": "view\\NotFound.view.xml"

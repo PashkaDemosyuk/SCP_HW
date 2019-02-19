@@ -12,6 +12,7 @@
         "import_columns": [
                     "compid",
                     "name",
+                    "create_date",
                     "update_date"
         ]
       }

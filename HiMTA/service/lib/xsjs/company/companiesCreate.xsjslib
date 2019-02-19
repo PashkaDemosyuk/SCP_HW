@@ -6,7 +6,7 @@
 
 /*
  const COMPANY_TABLE = "HiMTA::Company";
- const SEQ_NAME = "HiMTA::compid";
+ const COMPANY_ID = "HiMTA::compid";
  */
 
 function companiesCreate(param){
@@ -37,15 +37,17 @@ function companiesCreate(param){
 	for( var i = 0; i<2; i++){
 		var pStmt;
 		if(i<1){
-			pStmt = param.connection.prepareStatement("insert into \"HiMTA::Company\" values(?,?)" );
+			pStmt = param.connection.prepareStatement("insert into \"HiMTA::Company\" values(?,?,?,?)" );
 		}else{
 			pStmt = param.connection.prepareStatement("TRUNCATE TABLE \"" + after + "\"" );
 			pStmt.executeUpdate();
 			pStmt.close();
-			pStmt = param.connection.prepareStatement("insert into \"" + after + "\" values(?,?)" );
+			pStmt = param.connection.prepareStatement("insert into \"" + after + "\" values(?,?,?,?)" );
 		}
 		pStmt.setString(1, oCompany.id.toString());
 		pStmt.setString(2, oCompany.name.toString());
+		pStmt.setTimestamp(3, (new Date()).toISOString());
+		pStmt.setTimestamp(4, (new Date()).toISOString());
 		pStmt.executeUpdate();
 		pStmt.close();
 	}
