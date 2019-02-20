@@ -8,16 +8,27 @@ var statementConstructor = function () {
         };
         let sColumnList = '', sValueList = '';
 
-    for(let key in oValueObject){
-            sColumnList += `"${key}", `;
-            oResult.aParams.push(key);
+    var currentDate = new Date();
 
+    for(let key in oValueObject){
+            sColumnList += `"${key}",`;
+            oResult.aParams.push(key);
             sValueList += "?, ";
             oResult.aValues.push(oValueObject[key]);
     };
 
+     sColumnList += `"${create_date}",`;
+     oResult.aParams.push(create_date);
+     sValueList += "?, ";
+     oResult.aValues.push(currentDate);
+
+     sColumnList += `"${update_date}",`;
+     oResult.aParams.push(update_date);
+     sValueList += "?, ";
+     oResult.aValues.push(currentDate);
+
         // Remove the last unnecessary comma and blank
-        sColumnList = sColumnList.slice(0, -2);
+        sColumnList = sColumnList.slice(0, -1);
         sValueList = sValueList.slice(0, -2);
 
         oResult.sql = `insert into "${sTableName}" (${sColumnList}) values (${sValueList})`;
