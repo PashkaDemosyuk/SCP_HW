@@ -12,13 +12,6 @@
             "name": "Component.js"
         },
         {
-            "name": "controller\\App-dbg.controller.js",
-            "isDebug": true
-        },
-        {
-            "name": "controller\\App.controller.js"
-        },
-        {
             "name": "controller\\BaseController-dbg.js",
             "isDebug": true
         },
@@ -26,11 +19,18 @@
             "name": "controller\\BaseController.js"
         },
         {
-            "name": "controller\\NotFound-dbg.controller.js",
+            "name": "controller\\CompanyDetails-dbg.controller.js",
             "isDebug": true
         },
         {
-            "name": "controller\\NotFound.controller.js"
+            "name": "controller\\CompanyDetails.controller.js"
+        },
+        {
+            "name": "controller\\Home-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller\\Home.controller.js"
         },
         {
             "name": "di.code-validation.core_issues.json"
@@ -40,14 +40,14 @@
             "raw": "i18n\\i18n.properties"
         },
         {
-            "name": "index-dbg.js",
-            "isDebug": true
-        },
-        {
             "name": "index.html"
         },
         {
-            "name": "index.js"
+            "name": "initMockServer-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "initMockServer.js"
         },
         {
             "name": "manifest.json"
@@ -60,13 +60,13 @@
             "name": "tmp\\Component.js"
         },
         {
-            "name": "tmp\\controller\\App.controller.js"
-        },
-        {
             "name": "tmp\\controller\\BaseController.js"
         },
         {
-            "name": "tmp\\controller\\NotFound.controller.js"
+            "name": "tmp\\controller\\CompanyDetails.controller.js"
+        },
+        {
+            "name": "tmp\\controller\\Home.controller.js"
         },
         {
             "name": "tmp\\i18n\\i18n.properties",
@@ -76,37 +76,49 @@
             "name": "tmp\\index.html"
         },
         {
-            "name": "tmp\\index.js"
+            "name": "tmp\\initMockServer.js"
         },
         {
             "name": "tmp\\manifest.json"
         },
         {
-            "name": "tmp\\view\\App.view.xml"
+            "name": "tmp\\view\\Change.fragment.xml"
         },
         {
-            "name": "tmp\\view\\NotFound.view.xml"
+            "name": "tmp\\view\\Details.view.xml"
+        },
+        {
+            "name": "tmp\\view\\Display.fragment.xml"
+        },
+        {
+            "name": "tmp\\view\\Home.view.xml"
         },
         {
             "name": "tmp-dbg\\Component.js"
         },
         {
-            "name": "tmp-dbg\\controller\\App.controller.js"
-        },
-        {
             "name": "tmp-dbg\\controller\\BaseController.js"
         },
         {
-            "name": "tmp-dbg\\controller\\NotFound.controller.js"
+            "name": "tmp-dbg\\controller\\CompanyDetails.controller.js"
         },
         {
-            "name": "tmp-dbg\\index.js"
+            "name": "tmp-dbg\\controller\\Home.controller.js"
         },
         {
-            "name": "view\\App.view.xml"
+            "name": "tmp-dbg\\initMockServer.js"
         },
         {
-            "name": "view\\NotFound.view.xml"
+            "name": "view\\Change.fragment.xml"
+        },
+        {
+            "name": "view\\Details.view.xml"
+        },
+        {
+            "name": "view\\Display.fragment.xml"
+        },
+        {
+            "name": "view\\Home.view.xml"
         },
         {
             "name": "xs-app.json"

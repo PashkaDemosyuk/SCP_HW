@@ -1,0 +1,42 @@
+<mvc:View controllerName="company_display.controller.App" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+	<Shell>
+	<App>
+	<pages>
+	<Page>
+    <Panel id="PeopleDetailPanel" headerText="List of Companies:" class="sapUiResponsiveMargin" width="auto">
+    <content>
+      <Table id="details" items = "{
+      path: 'companies>/Companies'
+      }">
+        <columns>
+          <Column id="companyIdColumn">
+            <Text text="{i18n>companyID}" />
+          </Column>
+          <Column id="companyNameColumn">
+            <Text text="{i18n>companyName}" />
+          </Column>  
+          <Column id="companyUpdateColumn">
+            <Text text="{i18n>update_date}" />
+          </Column>        
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Label text="{companies>compid}" />
+            </cells>
+            <cells>
+              <Label text="{companies>name}" />
+            </cells>    
+            <cells>
+              <Label text="{companies>update_date}" />
+            </cells>      
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+  </Panel>
+	</Page>
+	</pages>
+	</App>
+	</Shell>
+        </mvc:View>

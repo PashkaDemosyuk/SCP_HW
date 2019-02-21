@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="company_display.controller.companyDetails"
+	controllerName="company_display.controller.CompanyDetails"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:f="sap.ui.layout.form"
