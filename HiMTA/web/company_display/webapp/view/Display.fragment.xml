@@ -12,8 +12,14 @@
 			columnsXL="4"
 			>
 			<f:content>
+				<Label text="{i18n>companyIdTitle}" />
+				<Text id="idText" text="{companies>compid}" />
 				<Label text="{i18n>companyListTitle}" />
 				<Text id="nameText" text="{companies>name}" />
+				<Label text="{i18n>update_dateListTitle}" />
+				<Text id="updtateText" text="{companies>update_date}" />
+				<Label text="{i18n>companyListTitle}" />
+				<Text id="createText" text="{companies>create_date}" />
 			</f:content>
 		</f:SimpleForm>
 	</VBox>
