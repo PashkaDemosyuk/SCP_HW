@@ -1,89 +1,44 @@
 <mvc:View
-	controllerName="company_display.controller.Home"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:l="sap.ui.layout"
-	xmlns:mvc="sap.ui.core.mvc">
-	<Shell>
-		<App id="home">
-			<pages>
-				<Page 
-					showHeader="false" 
-					enableScrolling="true" 
-					class="sapUiContentPadding">
-					<subHeader>
-					<Toolbar>
-						<SearchField 
-						 liveChange=".onSearch"
-						 width="100%" />
-					</Toolbar>
-					</subHeader>
-					<content>
-						<List id="companyList"
-						headerText="{i18n>companyListTitle}"
-						growing="true"
-						growingThreshold="10" 
-						items="{
+        controllerName="company_display.controller.Home"
+        displayBlock="true"
+        xmlns="sap.m"
+        xmlns:l="sap.ui.layout"
+        xmlns:mvc="sap.ui.core.mvc">
+    <Shell>
+        <App id="home">
+            <pages>
+                <Page
+                        showHeader="false"
+                        enableScrolling="true"
+                        class="sapUiContentPadding">
+                    <subHeader>
+                        <Toolbar>
+                            <SearchField
+                                    liveChange=".onSearch"
+                                    width="100%"/>
+                        </Toolbar>
+                    </subHeader>
+                    <content>
+                        <List id="companyList"
+                              headerText="{i18n>companyListTitle}"
+                              growing="true"
+                              growingThreshold="10"
+                              items="{
 							path: 'companies>/Companies'
 							}"
-						>
-						<items>
-							<StandardListItem title="{companies>name}"
-											info="Updated on: {companies>update_date}"
-											description="Created on: {companies>create_date}"
-											type="Navigation"
-											press = ".onItemSelected"
-							/>
-						</items>
-						</List>
-					<!--	<Table
-							id="bookTable"
-							growing="true"
-							growingThreshold="10"
-							paste="onPaste"
-							>
-							<headerToolbar>
-								<OverflowToolbar id="otbSubheader">
-									<Title text="Books owned by the author" />
-									<ToolbarSpacer />
-									<Button id="editButton" text="Edit" type="Transparent"
-										press="onEdit" />
-									<Button id="saveButton" text="Save" type="Transparent"
-										press="onSave" visible="false" />
-									<Button id="cancelButton" text="Cancel" type="Transparent"
-										press="onCancel" visible="false" />
-								</OverflowToolbar>
-							</headerToolbar>
-							<columns>
-								<Column id="bookNameColumn" demandPopin="true">
-									<Text text="{i18n>bookNameLabelText}"/>
-								</Column>
-								<Column id="updateOnColumn">
-									<Text text="{i18n>updateOnLabelText}"/>
-								</Column>
-								<Column id="createColumn">
-									<Text text="{i18n>createLabelText}"/>
-								</Column>
-							</columns>
-							<items>
-								<ColumnListItem  
-								 type="Navigation"
-								 press = ".onItemSelected">
-									<cells>
-										<ObjectIdentifier  title="{books>caption}" text="{books>bid}" />
-									</cells>
-									<cells>
-										<ObjectIdentifier  text="{books>onUpdate}" />
-									</cells>
-									<cells>
-										<ObjectIdentifier  text="{books>onCreate}" />
-									</cells>
-								</ColumnListItem>
-							</items>
-						</Table> -->
-					</content>
-				</Page>
-			</pages>
-		</App>
-	</Shell>
+                        >
+                            <items>
+                                <StandardListItem title="{companies>name}"
+                                                  info="Updated on: {companies>update_date}"
+                                                  description="Created on: {companies>create_date}"
+                                                  type="Navigation"
+                                                  press=".onItemSelected"
+                                />
+                            </items>
+                        </List>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
 </mvc:View>

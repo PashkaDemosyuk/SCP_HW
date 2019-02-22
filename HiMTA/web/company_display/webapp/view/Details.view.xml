@@ -1,23 +1,29 @@
 <mvc:View
-	controllerName="company_display.controller.CompanyDetails"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:f="sap.ui.layout.form"
-	busyIndicatorDelay="0">
-	<Page
-        id="page"
-		title="{i18n>PageTitle}"
-		showNavButton="true"
-		navButtonPress=".onNavBack"
-		class="sapUiResponsiveContentPadding">
+        controllerName="company_display.controller.CompanyDetails"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+        busyIndicatorDelay="0">
+    <Page
+            id="page"
+            title="{i18n>PageTitle}"
+            showNavButton="true"
+            navButtonPress=".onNavBack"
+            class="sapUiResponsiveContentPadding">
         <customHeader>
-			<Bar>
-				<contentRight>
-					<Button id="edit" text="Edit" enabled="false" press="handleEditPress" />
-					<Button id="save" text="Save" type="Emphasized" visible="false" press="handleSavePress" />
-					<Button id="cancel" text="Cancel" visible="false" press="handleCancelPress" />
-				</contentRight>
-			</Bar>
-		</customHeader>
-	</Page>
+            <Bar>
+                <contentLeft>
+                <Button id="onNavBack" type="Back" press="onNavBack"/>
+                </contentLeft>
+                <contentRight>
+                    <Button id="edit" text="Edit" enabled="false" press="handleEditPress"/>
+                    <Button id="save" text="Change" type="Accept" visible="false" press="handleSavePress"/>
+                    <Button id="cancel" text="Cancel" visible="false" press="handleCancelPress"/>
+                </contentRight>
+                <contentRight>
+                    <Button id="delete" text="Delete" type="Reject" press="handleDeletePress"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+    </Page>
 </mvc:View>
