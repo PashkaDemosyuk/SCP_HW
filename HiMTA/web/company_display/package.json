@@ -2,10 +2,8 @@
   "name": "company_display",
   "version": "0.0.1",
   "description": "",
-  "devDependencies": {
-    "@sap/grunt-sapui5-bestpractice-build": "1.3.62"
-  },
   "dependencies": {
+    "@sap/grunt-sapui5-bestpractice-build": "1.3.62",
     "@sap/approuter": "5.7.0"
   },
   "scripts": {

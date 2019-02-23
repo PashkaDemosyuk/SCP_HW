@@ -1,8 +1,9 @@
 sap.ui.define([
     "company_display/controller/BaseController",
     "sap/ui/core/routing/History",
-    'jquery.sap.global'
-], function (BaseController, History, jQuery) {
+    'jquery.sap.global',
+    "sap/m/MessageToast"
+], function (BaseController, History, jQuery, MessageToast) {
     "use strict";
     return BaseController.extend("company_display.controller.CompanyDetails", {
         onInit: function () {
@@ -80,37 +81,40 @@ sap.ui.define([
             });
 
             this._toggleButtonsAndView(false);
-
+            // window.location.reload();
+            
+            MessageToast.show("Company was changed Please reload page");
         },
 
         handleDeletePress: function () {
-        //     var Compid = sap.ui.getCore().byId("idText").getText();
-        //     console.log(Compid);
-        //     var settings = {
-        //         "async": true,
-        //         "crossDomain": true,
-        //         "url": "https://p2001096821trial-trial-dev-router.cfapps.eu10.hana.ondemand.com/api/xsjs/company/company.xsjs?compid=",
-        //         "method": "DELETE",
-        //         "headers": {
-        //             "content-type": "application/json"
-        //         },
-        //         "processData": false,
-        //         "data": "{\n   \"compid\":\"" + Compid + "\"\n}"
-        //     };
-        //     $.ajax(settings).done(function (response) {
-        //         console.log(response);
+            var Compid = sap.ui.getCore().byId("idText").getText();
+            console.log(Compid);
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://p2001096821trial-trial-dev-router.cfapps.eu10.hana.ondemand.com/api/xsjs/company/company.xsjs?compid=",
+                "method": "DELETE",
+                "headers": {
+                    "content-type": "application/json"
+                },
+                "processData": false,
+                "data": "{\n   \"compid\":\"" + Compid + "\"\n}"
+            };
+            $.ajax(settings).done(function (response) {
+                console.log(response);
 
-        //     });
-        // },
+            });
+            this.onNavBack();
+        },
 
-        // _onObjectMatched: function (oEvent) {
-        //     this.getView().bindElement({
-        //             path: decodeURIComponent(oEvent.getParameter("arguments").companyID),
-        //             model: "companies"
-        //         }
-        //     );
+        _onObjectMatched: function (oEvent) {
+            this.getView().bindElement({
+                    path: decodeURIComponent(oEvent.getParameter("arguments").companyID),
+                    model: "companies"
+                }
+            );
 
-        this.onNavBack();
+    
         },
 
 
@@ -123,7 +127,7 @@ sap.ui.define([
             if (sPreviousHash !== undefined) {
                 window.history.go(-1);
             } else {
-                this.getRouter().navTo("app", {}, true);
+                this.getRouter().navTo("home", {}, true);
             }
         }
     });

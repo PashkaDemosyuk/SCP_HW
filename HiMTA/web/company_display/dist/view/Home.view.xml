@@ -3,7 +3,8 @@
         displayBlock="true"
         xmlns="sap.m"
         xmlns:l="sap.ui.layout"
-        xmlns:mvc="sap.ui.core.mvc">
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:semantic="sap.f.semantic">
     <Shell>
         <App id="home">
             <pages>
@@ -37,6 +38,14 @@
                             </items>
                         </List>
                     </content>
+                     <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Change" type="Accept" press="showCreateDialog" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
                 </Page>
             </pages>
         </App>

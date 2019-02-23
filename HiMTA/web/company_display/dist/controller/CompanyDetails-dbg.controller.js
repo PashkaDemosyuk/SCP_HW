@@ -1,8 +1,9 @@
 sap.ui.define([
     "company_display/controller/BaseController",
     "sap/ui/core/routing/History",
-    'jquery.sap.global'
-], function (BaseController, History, jQuery) {
+    'jquery.sap.global',
+    "sap/m/MessageToast"
+], function (BaseController, History, jQuery, MessageToast) {
     "use strict";
     return BaseController.extend("company_display.controller.CompanyDetails", {
         onInit: function () {
@@ -80,7 +81,9 @@ sap.ui.define([
             });
 
             this._toggleButtonsAndView(false);
-
+            // window.location.reload();
+            
+            MessageToast.show("Company was changed Please reload page");
         },
 
         handleDeletePress: function () {
@@ -99,8 +102,9 @@ sap.ui.define([
             };
             $.ajax(settings).done(function (response) {
                 console.log(response);
-                getModel().refresh(true);
+
             });
+            this.onNavBack();
         },
 
         _onObjectMatched: function (oEvent) {
@@ -109,6 +113,8 @@ sap.ui.define([
                     model: "companies"
                 }
             );
+
+    
         },
 
 
@@ -121,7 +127,7 @@ sap.ui.define([
             if (sPreviousHash !== undefined) {
                 window.history.go(-1);
             } else {
-                this.getRouter().navTo("app", {}, true);
+                this.getRouter().navTo("home", {}, true);
             }
         }
     });

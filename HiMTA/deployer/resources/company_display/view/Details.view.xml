@@ -14,7 +14,7 @@
             <Bar>
                 <contentRight>
                     <Button id="edit" text="Edit" enabled="false" press="handleEditPress"/>
-                    <Button id="save" text="Change" type="Emphasized" visible="false" press="handleSavePress"/>
+                    <Button id="save" text="Change" type="Accept" visible="false" press="handleSavePress"/>
                     <Button id="cancel" text="Cancel" visible="false" press="handleCancelPress"/>
                 </contentRight>
                 <contentRight>

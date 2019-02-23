@@ -85,6 +85,9 @@
             "name": "tmp\\view\\Change.fragment.xml"
         },
         {
+            "name": "tmp\\view\\Create.fragment.xml"
+        },
+        {
             "name": "tmp\\view\\Details.view.xml"
         },
         {
@@ -110,6 +113,9 @@
         },
         {
             "name": "view\\Change.fragment.xml"
+        },
+        {
+            "name": "view\\Create.fragment.xml"
         },
         {
             "name": "view\\Details.view.xml"

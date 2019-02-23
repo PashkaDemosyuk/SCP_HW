@@ -12,9 +12,6 @@
             class="sapUiResponsiveContentPadding">
         <customHeader>
             <Bar>
-                <contentLeft>
-                <Button id="onNavBack" type="Back" press="onNavBack"/>
-                </contentLeft>
                 <contentRight>
                     <Button id="edit" text="Edit" enabled="false" press="handleEditPress"/>
                     <Button id="save" text="Change" type="Accept" visible="false" press="handleSavePress"/>
