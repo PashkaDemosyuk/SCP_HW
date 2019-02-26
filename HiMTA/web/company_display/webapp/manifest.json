@@ -18,11 +18,11 @@
         }
       }
     },
-    "editSource": {
+    "editSource":{
       "uri": "company_display/model/editMode.json",
       "type": "JSON"
     },
-    "displaySource": {
+    "displaySource":{
       "uri": "company_display/model/displayMode.json",
       "type": "JSON"
     }
