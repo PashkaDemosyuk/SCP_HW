@@ -38,8 +38,8 @@ sap.ui.define([
                 this.byId("createDialog").open();
             }
         },
-        createFridge: function(){
-            var NewCompanyName = sap.ui.getCore().byId("NewCompanyName").getValue();
+        createCompany: function(){
+            var NewCompanyName = this.getView().byId("NewCompanyNameInput").getValue();
             console.log(NewCompanyName);
             var settings = {
                 "async": true,
@@ -56,6 +56,8 @@ sap.ui.define([
               $.ajax(settings).done(function (response) {
                 console.log(response);
               });
+            this.getView().byId("createDialog").close();
+            window.location.reload();
         },
         closeDialog: function () {
             this.getView().byId("createDialog").close();

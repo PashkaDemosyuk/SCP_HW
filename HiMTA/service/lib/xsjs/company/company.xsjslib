@@ -1,3 +1,7 @@
+const COMPANY_TABLE = "HiMTA::Company";
+const OFFICE_TABLE = "HiMTA::ExtraInfo.Office";
+const WORKERS_TABLE = "HiMTA::ExtraInfo.Workers";
+const COMPANY_ID = "HiMTA::compid";
 var statementConstructor = function () {
 
     this.createPreparedInsertStatement = function (sTableName, oValueObject) {
@@ -8,24 +12,25 @@ var statementConstructor = function () {
         };
         let sColumnList = '', sValueList = '';
 
-    var currentDate = new Date();
+        var currentDate = new Date();
 
-    for(let key in oValueObject){
+        for (let key in oValueObject) {
             sColumnList += `"${key}",`;
             oResult.aParams.push(key);
             sValueList += "?, ";
             oResult.aValues.push(oValueObject[key]);
-    };
+        }
+        ;
 
-     sColumnList += `"${create_date}",`;
-     oResult.aParams.push(create_date);
-     sValueList += "?, ";
-     oResult.aValues.push(currentDate);
+        sColumnList += `"${create_date}",`;
+        oResult.aParams.push(create_date);
+        sValueList += "?, ";
+        oResult.aValues.push(currentDate);
 
-     sColumnList += `"${update_date}",`;
-     oResult.aParams.push(update_date);
-     sValueList += "?, ";
-     oResult.aValues.push(currentDate);
+        sColumnList += `"${update_date}",`;
+        oResult.aParams.push(update_date);
+        sValueList += "?, ";
+        oResult.aValues.push(currentDate);
 
         // Remove the last unnecessary comma and blank
         sColumnList = sColumnList.slice(0, -1);
@@ -38,18 +43,18 @@ var statementConstructor = function () {
     };
 
     this.createPreparedUpdateStatement = function (sTableName, oValueObject) {
-            let sql = `UPDATE "${sTableName}" SET `;
+        let sql = `UPDATE "${sTableName}" SET `;
 
-            for(let key in oValueObject){
-                if(key!='compid')
-                {
-                    sql += `"${key}"='${oValueObject[key]}', `
-                }
-            };
+        for (let key in oValueObject) {
+            if (key != 'compid') {
+                sql += `"${key}"='${oValueObject[key]}', `
+            }
+        }
+        ;
 
-            sql = sql.slice(0, -2);
-            sql += ` WHERE "compid"='${oValueObject.compid}';`;
-            return sql;
+        sql = sql.slice(0, -2);
+        sql += ` WHERE "compid"='${oValueObject.compid}';`;
+        return sql;
     };
 
 };
@@ -59,9 +64,6 @@ var company = function (connection) {
 
     const statementConstructorLib = new statementConstructor();
 
-    const COMPANY_TABLE = "HiMTA::Company";
-    const OFFICE_TABLE = "HiMTA::ExtraInfo.Office";
-    const WORKERS_TABLE = "HiMTA::ExtraInfo.Workers";
 
     function getNextval(sSeqName) {
 
@@ -76,7 +78,7 @@ var company = function (connection) {
     }
 
     this.doGet = function () {
-        const result = connection.executeQuery('SELECT * FROM "HiMTA::Company"');
+        const result = connection.executeQuery('SELECT * FROM "' + COMPANY_TABLE + '"');
 
         $.response.status = $.net.http.OK;
         $.response.setBody(JSON.stringify(result));
@@ -86,7 +88,7 @@ var company = function (connection) {
     this.doPost = function (oCompany) {
 
         //Get Next ID Number
-        oCompany.compid = getNextval("HiMTA::compid");
+        oCompany.compid = getNextval(COMPANY_ID);
 
         //generate query
         const statement = statementConstructorLib.createPreparedInsertStatement(COMPANY_TABLE, oCompany);

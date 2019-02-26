@@ -13,9 +13,9 @@
         <customHeader>
             <Bar>
                 <contentRight>
-                    <Button id="edit" text="Edit" enabled="false" press="handleEditPress"/>
-                    <Button id="save" text="Change" type="Accept" visible="false" press="handleSavePress"/>
-                    <Button id="cancel" text="Cancel" visible="false" press="handleCancelPress"/>
+                    <Button id="edit" text="Edit" visible="{/edit}" press="handleEditPress"/>
+                    <Button id="save" text="Change" type="Accept" visible="{/save}" press="handleSavePress"/>
+                    <Button id="cancel" text="Cancel" visible="{/cancel}" press="handleCancelPress"/>
                 </contentRight>
                 <contentRight>
                     <Button id="delete" text="Delete" type="Reject" press="handleDeletePress"/>

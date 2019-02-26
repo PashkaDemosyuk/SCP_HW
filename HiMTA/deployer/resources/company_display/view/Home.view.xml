@@ -42,7 +42,7 @@
             <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
                 <content>
                     <ToolbarSpacer width=""/>
-                    <Button text="Change" type="Accept" press="showCreateDialog" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Create" type="Accept" press="showCreateDialog" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
                 </content>
             </OverflowToolbar>
         </footer>

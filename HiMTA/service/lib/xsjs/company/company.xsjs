@@ -29,8 +29,8 @@ const companyLib = new Companylib($.hdb.getConnection({
                 }
             }
         } catch (e) {
-                $.response.status = $.net.http.BAD_REQUEST;
-                $.response.setBody(e.message);
+            $.response.status = $.net.http.BAD_REQUEST;
+            $.response.setBody(e.message);
         }
     }());
 }());

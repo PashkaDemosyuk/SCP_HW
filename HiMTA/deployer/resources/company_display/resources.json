@@ -53,6 +53,12 @@
             "name": "manifest.json"
         },
         {
+            "name": "model\\displayMode.json"
+        },
+        {
+            "name": "model\\editMode.json"
+        },
+        {
             "name": "tmp\\Component-preload.js",
             "merged": true
         },
@@ -80,6 +86,12 @@
         },
         {
             "name": "tmp\\manifest.json"
+        },
+        {
+            "name": "tmp\\model\\displayMode.json"
+        },
+        {
+            "name": "tmp\\model\\editMode.json"
         },
         {
             "name": "tmp\\view\\Change.fragment.xml"

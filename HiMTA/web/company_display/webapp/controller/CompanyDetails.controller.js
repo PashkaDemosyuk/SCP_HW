@@ -2,16 +2,18 @@ sap.ui.define([
     "company_display/controller/BaseController",
     "sap/ui/core/routing/History",
     'jquery.sap.global',
+    "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast"
-], function (BaseController, History, jQuery, MessageToast) {
+], function (BaseController, History, jQuery, MessageToast, JSONModel) {
     "use strict";
     return BaseController.extend("company_display.controller.CompanyDetails", {
+
         onInit: function () {
             var oRouter = this.getRouter();
             oRouter.getRoute("details").attachPatternMatched(this._onObjectMatched, this);
 
             this._showFormFragment('Display');
-            this.byId('edit').setEnabled(true);
+            this._toggleButtonsAndView('Display');
         },
 
         _formFragments: {},
@@ -32,32 +34,29 @@ sap.ui.define([
             }
 
             var oFormFragment = sap.ui.xmlfragment("company_display.view." + sFragmentName);
-
             this._formFragments[sFragmentName] = oFormFragment;
+
             return this._formFragments[sFragmentName];
         },
 
         handleEditPress: function () {
             this._showFormFragment('Change');
-            this._toggleButtonsAndView(true);
+            this._toggleButtonsAndView('Edit');
         },
 
         _toggleButtonsAndView: function (bEdit) {
-            var oView = this.getView();
+            var oMdl = new JSONModel();
+            if (bEdit === 'Edit') {
+                oMdl.loadData("./model/editMode.json")
+            } else {
+                oMdl.loadData("./model/displayMode.json")
+            }
 
-            // Show the appropriate action buttons
-            oView.byId("edit").setVisible(!bEdit);
-            oView.byId("save").setVisible(bEdit);
-            oView.byId("cancel").setVisible(bEdit);
-            oView.byId("delete").setVisible(!bEdit);
-
-            // Set the right form type
-            this._showFormFragment(bEdit ? "Change" : "Display");
+            this.getView().setModel(oMdl);
         },
 
         handleCancelPress: function () {
-            this._toggleButtonsAndView(false);
-
+            this._toggleButtonsAndView('Display');
         },
 
         handleSavePress: function () {
@@ -80,9 +79,9 @@ sap.ui.define([
                 console.log(response);
             });
 
-            this._toggleButtonsAndView(false);
+            this._toggleButtonsAndView('Display');
             // window.location.reload();
-            
+
             MessageToast.show("Company was changed Please reload page");
         },
 
@@ -114,7 +113,7 @@ sap.ui.define([
                 }
             );
 
-    
+
         },
 
 
@@ -127,7 +126,7 @@ sap.ui.define([
             if (sPreviousHash !== undefined) {
                 window.history.go(-1);
             } else {
-                this.getRouter().navTo("home", {}, true);
+                this.getRouter().navTo("app", {}, true);
             }
         }
     });
