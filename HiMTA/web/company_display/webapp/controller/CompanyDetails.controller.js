@@ -79,9 +79,9 @@ sap.ui.define([
             });
 
             this._toggleButtonsAndView('Display');
-            // window.location.reload();
+           window.location.reload();
 
-            MessageToast.show("Company was changed Please reload page");
+            //MessageToast.show("Company was changed Please reload page");
         },
 
         handleDeletePress: function () {
@@ -103,6 +103,7 @@ sap.ui.define([
 
             });
             this.onNavBack();
+            window.location.reload();
         },
 
         _onObjectMatched: function (oEvent) {
