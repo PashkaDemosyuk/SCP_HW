@@ -1,10 +1,9 @@
 sap.ui.define([
     "company_display/controller/BaseController",
     "sap/ui/core/routing/History",
-    'jquery.sap.global',
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast"
-], function (BaseController, History, jQuery, MessageToast, JSONModel) {
+], function (BaseController, History, JSONModel, MessageToast) {
     "use strict";
     return BaseController.extend("company_display.controller.CompanyDetails", {
 
@@ -47,9 +46,9 @@ sap.ui.define([
         _toggleButtonsAndView: function (bEdit) {
             var oMdl = new JSONModel();
             if (bEdit === 'Edit') {
-                oMdl.loadData("./model/editMode.json")
+                oMdl.loadData("./model/editMode.json");
             } else {
-                oMdl.loadData("./model/displayMode.json")
+                oMdl.loadData("./model/displayMode.json");
             }
 
             this.getView().setModel(oMdl);
@@ -80,9 +79,9 @@ sap.ui.define([
             });
 
             this._toggleButtonsAndView('Display');
-            // window.location.reload();
+           window.location.reload();
 
-            MessageToast.show("Company was changed Please reload page");
+            //MessageToast.show("Company was changed Please reload page");
         },
 
         handleDeletePress: function () {
@@ -104,6 +103,7 @@ sap.ui.define([
 
             });
             this.onNavBack();
+            window.location.reload();
         },
 
         _onObjectMatched: function (oEvent) {
