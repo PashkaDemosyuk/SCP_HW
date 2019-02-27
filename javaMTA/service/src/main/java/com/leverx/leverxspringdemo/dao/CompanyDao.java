@@ -73,7 +73,7 @@ public class CompanyDao implements ICompanyDao {
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmnt = conn.prepareStatement(
 						"INSERT INTO \"javaDPA::Company\"(\"name\") VALUES (?)")) {
-			stmnt.setString(2, entity.getName());
+			stmnt.setString(1, entity.getName());
 			stmnt.execute();
 		} catch (SQLException e) {
 			logger.error("Error while trying to add entity: " + e.getMessage());
@@ -96,8 +96,8 @@ public class CompanyDao implements ICompanyDao {
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmnt = conn.prepareStatement(
 						"UPDATE \"javaDPA::Company\" SET  \"name\" = ? WHERE \"compid\" = ?")) {
-			stmnt.setString(2, entity.getName());
-			stmnt.setLong(3, entity.getId());
+			stmnt.setString(1, entity.getName());
+			stmnt.setLong(2, entity.getId());
 			stmnt.executeUpdate();
 		} catch (SQLException e) {
 			logger.error("Error while trying to update entity: " + e.getMessage());

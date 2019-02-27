@@ -2,7 +2,10 @@ namespace javaDPA;
 
 entity Company {
     @Comment: 'Id of Company'
-    key compid : String(4);
+    key compid : Integer64 generated always as identity ( start with 1 increment by 1 );
     @Comment: 'Description'
     name : String(100);
+
+
+    toOffice : Association[1] to Office on toOffice.compid = compid;
 };

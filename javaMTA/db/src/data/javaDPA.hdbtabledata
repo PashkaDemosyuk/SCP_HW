@@ -1,0 +1,35 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "javaDPA::Company",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "javaDPA::Companies.csv",
+        "has_header": true
+      },
+      "import_settings": {
+        "import_columns": [
+                    "compid",
+                    "name"
+        ]
+      }
+    },
+    {
+      "target_table": "javaDPA::ExtraInfo.Office",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "javaDPA::Office.csv",
+        "has_header": true
+      },
+      "import_settings": {
+        "import_columns": [
+					"compid",
+					"city",
+					"strt",
+					"hnum"
+        ]
+      }
+    }
+  ]
+}
