@@ -1,0 +1,17 @@
+{
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "/api/(.*)",
+      "target": "$1",
+      "destination": "javarest",
+      "authenticationType": "xsuaa"
+    },
+    {
+	  "source": "/s4c/(.*)",
+	  "target": "/$1",
+	  "destination": "s4c",
+      "authenticationType": "xsuaa"
+  	}
+  ]
+}
